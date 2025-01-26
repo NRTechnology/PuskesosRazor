@@ -16,6 +16,7 @@ public class IndexModel : PageModel
   {
     // On Index page load, redirects to dashboard
     //Response.Redirect("Dashboards/Analytics");
+    // sdfsfsfs 
     Response.Redirect("/Users/Login/LoginPage");
   }
 }
