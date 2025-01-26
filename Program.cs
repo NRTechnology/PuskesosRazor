@@ -33,7 +33,7 @@ var app = builder.Build();
 {
   var services = scope.ServiceProvider;
 
-  SeedData.Initialize(services);
+  SeedData.Initialize(services); sds sdf dsf
 }*/
 
 // Configure the HTTP request pipeline.
