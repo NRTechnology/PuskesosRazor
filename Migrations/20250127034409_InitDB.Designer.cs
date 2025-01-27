@@ -12,8 +12,8 @@ using PuskesosRazor.Services;
 namespace PuskesosRazor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250126132801_InitData")]
-    partial class InitData
+    [Migration("20250127034409_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,13 +54,13 @@ namespace PuskesosRazor.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bb278733-b635-4c76-905f-3ccd8ed07bb3",
+                            Id = "f815e476-8b49-405e-80c9-9663ec76420e",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
-                            Id = "4a334ae4-dd2d-40b4-9050-cb119e2fdb09",
+                            Id = "d57ed467-ff24-4109-bc78-716a65a9306f",
                             Name = "BPJS",
                             NormalizedName = "BPJS"
                         });
@@ -154,6 +154,24 @@ namespace PuskesosRazor.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a6d76f26-5033-4555-94b8-bd5040b3aa13",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "admin@gmail.com",
+                            NormalizedUserName = "admin",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPr8vwNBkj7lxiFSiwKPu1KSeu+dFJIJegfOR8Vb4eEybglor3O7hmElZJDdRhZRxw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -218,6 +236,13 @@ namespace PuskesosRazor.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            RoleId = "f815e476-8b49-405e-80c9-9663ec76420e"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

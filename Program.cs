@@ -25,6 +25,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions =>
 });
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+  .AddRoles<IdentityRole>()
   .AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PuskesosRazor.Migrations
 {
     /// <inheritdoc />
-    public partial class InitData : Migration
+    public partial class InitDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -163,9 +163,19 @@ namespace PuskesosRazor.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4a334ae4-dd2d-40b4-9050-cb119e2fdb09", null, "BPJS", "BPJS" },
-                    { "bb278733-b635-4c76-905f-3ccd8ed07bb3", null, "Administrator", "Administrator" }
+                    { "d57ed467-ff24-4109-bc78-716a65a9306f", null, "BPJS", "BPJS" },
+                    { "f815e476-8b49-405e-80c9-9663ec76420e", null, "Administrator", "Administrator" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "a6d76f26-5033-4555-94b8-bd5040b3aa13", "admin@gmail.com", false, false, null, "admin@gmail.com", "admin", "AQAAAAIAAYagAAAAEPr8vwNBkj7lxiFSiwKPu1KSeu+dFJIJegfOR8Vb4eEybglor3O7hmElZJDdRhZRxw==", null, false, "", false, "admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "f815e476-8b49-405e-80c9-9663ec76420e", "a18be9c0-aa65-4af8-bd17-00bd9344e575" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

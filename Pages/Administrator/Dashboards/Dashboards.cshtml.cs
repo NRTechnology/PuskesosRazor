@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PuskesosRazor.Pages.Dashboards
+namespace PuskesosRazor.Pages.Administrator.Dashboards
 {
+  [Authorize(Roles = "Administrator")]
   public class AnalyticsModel : PageModel
   {
     public void OnGet() { }

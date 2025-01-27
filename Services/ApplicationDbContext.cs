@@ -15,8 +15,12 @@ namespace PuskesosRazor.Services
     {
       base.OnModelCreating(builder);
 
+      const string useradminId = "a18be9c0-aa65-4af8-bd17-00bd9344e575";
+      const string adminroleId = "f815e476-8b49-405e-80c9-9663ec76420e";
+
       var administrator = new IdentityRole("Administrator")
       {
+        Id = adminroleId,
         NormalizedName = "Administrator"
       };
 
@@ -26,6 +30,25 @@ namespace PuskesosRazor.Services
       };
 
       builder.Entity<IdentityRole>().HasData(administrator, bpjs);
+
+      var hasher = new PasswordHasher<IdentityUser>();
+      builder.Entity<IdentityUser>().HasData(new IdentityUser
+      {
+        Id = useradminId,
+        UserName = "admin",
+        NormalizedUserName = "admin",
+        Email = "admin@gmail.com",
+        NormalizedEmail = "admin@gmail.com",
+        EmailConfirmed = true,
+        PasswordHash = hasher.HashPassword(null!, "Admin123#"),
+        SecurityStamp = string.Empty
+      });
+
+      builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+      {
+        RoleId = adminroleId,
+        UserId = useradminId
+      });
     }
   }
 }
