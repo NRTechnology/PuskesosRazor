@@ -1,11 +1,17 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PuskesosRazor.Models;
 
 namespace PuskesosRazor.Services
 {
   public class ApplicationDbContext : IdentityDbContext
   {
+
+    public DbSet<Kecamatan> Kecamatan { get; set; }
+
+    public DbSet<Desa> Desa { get; set; }
+
     public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) 
     {
         
